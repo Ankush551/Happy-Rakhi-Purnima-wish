@@ -131,13 +131,15 @@
     }
 
     .gallery {
-      display: flex;
-      gap: 30px;
-      perspective: 1000px;
-      animation: scroll 20s linear infinite;
-      padding: 20px;
-      width: max-content;
-    }
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: scroll 20s linear infinite;
+}
+
 
     @keyframes scroll {
       0% { transform: translateX(0); }
@@ -324,6 +326,30 @@
       .pookie-message-container { padding: 20px; }
       .card-message { font-size: 14px; }
     }
+    @media (max-width: 768px) {
+    .gallery {
+        animation: none;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .card {
+        width: 90%;
+        height: auto;
+    }
+
+    .card-image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4/3;
+    }
+
+    .main-heading {
+        font-size: 24px;
+        text-align: center;
+    }
+}
+
   </style>
 </head>
 <body>
@@ -436,6 +462,10 @@
         window.location.href = "cake.html";
       }
     });
+    if (window.innerWidth <= 768) {
+    gallery.style.animation = 'none';
+}
+
   </script>
 </body>
 </html>
